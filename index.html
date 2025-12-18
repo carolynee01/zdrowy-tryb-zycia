@@ -18,7 +18,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Strona główna</a></li>
-                    <li><a href="dieta.html">Zdrowa dietaaaaaa</a></li>
+                    <li><a href="dieta.html">Zdrowa dieta</a></li>
                     <li><a href="cwiczenia.html">Ćwiczenia</a></li>
                     <li><a href="ciekawostki.html">Ciekawostki</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -61,9 +61,21 @@
             </section>
 
             <section class="bmi-section">
-                <h2>Kalkulator BMI</h2>
-                <p>Tu później dodamy interaktywny kalkulator BMI w JavaScript.</p>
-            </section>
+    <h2>Kalkulator BMI</h2>
+
+    <form id="bmiForm">
+        <label for="weight">Waga (kg):</label>
+        <input type="number" id="weight" min="20" max="300" required>
+
+        <label for="height">Wzrost (cm):</label>
+        <input type="number" id="height" min="80" max="250" required>
+
+        <button type="submit">Oblicz BMI</button>
+    </form>
+
+    <div id="bmiOutput"></div>
+</section>
+
 
         </main>
 
@@ -74,6 +86,33 @@
 
     </div>
 
-    <script src="script.js" defer></script>
+    <script>
+    // Kalkulator BMI
+    document.getElementById("bmiForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value) / 100;
+
+        if (!weight || !height) {
+            document.getElementById("bmiOutput").textContent = "Podaj poprawne dane.";
+            return;
+        }
+
+        const bmi = weight / (height * height);
+        const result = bmi.toFixed(1);
+
+        let category = "";
+        if (bmi < 18.5) category = "Niedowaga";
+        else if (bmi < 25) category = "Waga prawidłowa";
+        else if (bmi < 30) category = "Nadwaga";
+        else category = "Otyłość";
+
+        document.getElementById("bmiOutput").innerHTML =
+            `<strong>Twoje BMI:</strong> ${result}<br>
+             <strong>Kategoria:</strong> ${category}`;
+    });
+</script>
+
 </body>
 </html>
