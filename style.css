@@ -1,0 +1,143 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f6f6f6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #1a7f4b;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 999px;
+    color: #222;
+    background-color: #e0ffe8;
+}
+
+.main-nav a:hover {
+    background-color: #1a7f4b;
+    color: #fff;
+}
+
+.hero {
+    background: linear-gradient(135deg, #1a7f4b, #5bd18e);
+    color: #fff;
+    padding: 40px 24px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+main {
+    margin-bottom: 32px;
+}
+
+.intro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 8px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background-color: #1a7f4b;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: #145d37;
+}
+
+/* SEKCJA BMI */
+.bmi-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.site-footer {
+    padding: 16px 0 32px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 24px 16px;
+    }
+}
