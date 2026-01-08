@@ -488,6 +488,107 @@ main { margin-bottom: 50px; }
     line-height: 1.5;
 }
 
+/* --- Strefa Mind --- */
+.mind-hero {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.intro-mind {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.mind-section {
+    padding: 60px 0;
+}
+
+.mind-section.alt-bg {
+    background: linear-gradient(to right, #e0ffe8, #ffffff);
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.mind-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mind-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.mind-text {
+    flex: 1;
+}
+
+.mind-text h2 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.mind-text p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.mind-text ul {
+    padding-left: 20px;
+}
+
+.mind-text ul li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.mind-image {
+    flex: 1;
+}
+
+.mind-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+    .mind-content, .mind-content.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mind-text h2 { text-align: center; }
+    .mind-text ul { text-align: center; padding-left: 0; }
+}
 
 
 /* --- 6. NARZĘDZIA I FORMULARZE (BMI, WODA, KALORIE) --- */
