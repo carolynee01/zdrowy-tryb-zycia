@@ -54,6 +54,20 @@
             </section>
         </main>
 
+        <section class="bmi-section" style="margin-top: 40px;">
+            <h2>Kalkulator zapotrzebowania na wodę</h2>
+            <p>Woda jest niezbędna do prawidłowej koncentracji i regeneracji organizmu po treningu. Sprawdź, ile powinieneś pić dziennie.</p>
+
+            <form id="waterForm">
+            <label for="weightWater">Twoja waga (kg):</label>
+            <input type="number" id="weightWater" min="20" max="300" placeholder="Np. 65..." required>
+
+            <button type="submit" class="btn">Oblicz zapotrzebowanie</button>
+            </form>
+
+            <div id="waterOutput" style="margin-top: 20px;"></div> 
+        </section>
+
         <footer class="site-footer">
             <div class="social-media">
                 <a href="#"><img src="img/tiktok-icon.png" alt="TikTok"></a>

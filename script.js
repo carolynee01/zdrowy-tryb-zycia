@@ -71,4 +71,27 @@ document.addEventListener("DOMContentLoaded", function() {
             showSlide(currentSlide + 1);
         }, 5000);
     }
+
+    /* --- 4. KALKULATOR ZAPOTRZEBOWANIA NA WODĘ --- */
+    const waterForm = document.getElementById("waterForm");
+    
+    if (waterForm) {
+        waterForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const weight = parseFloat(document.getElementById("weightWater").value);
+
+            if (!weight || weight <= 0) {
+                document.getElementById("waterOutput").textContent = "Podaj poprawną wagę.";
+                return;
+            }
+
+            // Obliczenie: 35ml na każdy kg masy ciała
+            const waterLiters = (weight * 0.035).toFixed(2);
+
+            document.getElementById("waterOutput").innerHTML =
+                `Twoje dzienne zapotrzebowanie na płyny to około: <strong>${waterLiters} litrów</strong>.<br>
+                <small>Pamiętaj, że podczas upałów lub intensywnego sportu powinieneś pić więcej!</small>`;
+        });
+    }
 });

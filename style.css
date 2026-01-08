@@ -313,6 +313,35 @@ main {
     color: var(--primary-green);
 }
 
+/* Powiększenie pól wprowadzania danych w sekcjach narzędzi */
+.bmi-section input[type="number"] {
+    width: 100%; /* Pole zajmuje całą dostępną szerokość kontenera */
+    max-width: 400px; /* Maksymalna szerokość, aby nie było zbyt szerokie na desktopie */
+    padding: 15px 20px; /* Większy odstęp wewnątrz okienka dla lepszej wygody */
+    font-size: 1.2rem; /* Powiększona czcionka wpisywanych liczb */
+    border: 2px solid var(--accent-green); /* Wyraźna ramka w kolorze projektu [cite: 19] */
+    border-radius: 12px; /* Zaokrąglone rogi pasujące do nowoczesnego stylu [cite: 18] */
+    margin: 10px 0 20px 0; /* Odstęp od etykiety i przycisku */
+    outline: none;
+    transition: var(--transition);
+}
+
+/* Efekt po kliknięciu w okienko */
+.bmi-section input[type="number"]:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 8px rgba(26, 127, 75, 0.3);
+    transform: scale(1.02); /* Delikatne powiększenie przy aktywnym wpisywaniu */
+}
+
+/* Stylizacja etykiet nad polami */
+.bmi-section label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
 /* 6. Stopka */
 .site-footer {
     padding: 40px 0;
