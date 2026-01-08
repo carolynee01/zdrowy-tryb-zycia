@@ -94,4 +94,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 <small>Pamiętaj, że podczas upałów lub intensywnego sportu powinieneś pić więcej!</small>`;
         });
     }
+
+    /* --- 5. KALKULATOR KALORII (TDEE) --- */
+    const calorieForm = document.getElementById("calorieForm");
+    
+    if (calorieForm) {
+        calorieForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const age = parseFloat(document.getElementById("ageCalorie").value);
+            const weight = parseFloat(document.getElementById("weightCalorie").value);
+            const height = parseFloat(document.getElementById("heightCalorie").value);
+            const activity = parseFloat(document.getElementById("activity").value);
+            const goal = parseFloat(document.getElementById("goal").value);
+
+            // Obliczenie BMR (Podstawowa Przemiana Materii) - wzór uproszczony dla młodzieży
+            // Wzór: (10 * waga) + (6.25 * wzrost) - (5 * wiek) + 5
+            const bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            
+            // TDEE = BMR * Poziom Aktywności
+            const tdee = Math.round(bmr * activity);
+            const finalResult = tdee + goal;
+
+            document.getElementById("calorieOutput").innerHTML =
+                `Twoje dzienne zapotrzebowanie, aby osiągnąć cel, to: <strong>${finalResult} kcal</strong>.<br>
+                <small>Twoje zapotrzebowanie zerowe (utrzymanie wagi) wynosi ok. ${tdee} kcal.</small>`;
+        });
+    }
 });

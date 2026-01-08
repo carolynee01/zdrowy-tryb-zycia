@@ -68,6 +68,41 @@
             <div id="waterOutput" style="margin-top: 20px;"></div> 
         </section>
 
+        <section class="bmi-section" style="margin-top: 40px;">
+            <h2>Kalkulator zapotrzebowania kalorycznego</h2>
+            <p>Dowiedz się, ile energii potrzebuje Twój organizm, aby osiągnąć Twój cel (utrzymanie wagi, schudnięcie lub budowa masy).</p>
+
+            <form id="calorieForm">
+                <label for="ageCalorie">Wiek:</label>
+                <input type="number" id="ageCalorie" min="13" max="100" placeholder="Np. 16" required>
+
+                <label for="weightCalorie">Waga (kg):</label>
+                <input type="number" id="weightCalorie" min="20" max="300" placeholder="Np. 65" required>
+
+                <label for="heightCalorie">Wzrost (cm):</label>
+                <input type="number" id="heightCalorie" min="100" max="250" placeholder="Np. 175" required>
+
+                <label for="activity">Poziom aktywności:</label>
+                <select id="activity" class="bmi-section-select">
+                    <option value="1.2">Brak aktywności (siedzący tryb życia)</option>
+                    <option value="1.375">Niska aktywność (lekki sport 1-2 razy w tyg.)</option>
+                    <option value="1.55">Średnia aktywność (trening 3-4 razy w tyg.)</option>
+                    <option value="1.725">Wysoka aktywność (intensywny sport codziennie)</option>
+                </select>
+
+                <label for="goal">Twój cel:</label>
+                <select id="goal" class="bmi-section-select">
+                    <option value="0">Utrzymanie wagi</option>
+                    <option value="-400">Chcę schudnąć (redukcja)</option>
+                    <option value="300">Chcę przytyć (masa)</option>
+                </select>
+
+                <button type="submit" class="btn">Oblicz kalorie</button>
+            </form>
+
+            <div id="calorieOutput" style="margin-top: 20px;"></div>
+        </section>
+
         <footer class="site-footer">
             <div class="social-media">
                 <a href="#"><img src="img/tiktok-icon.png" alt="TikTok"></a>
