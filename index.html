@@ -4,15 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zdrowy styl życia – poradnik dla młodzieży</title>
-
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
 
         <header class="site-header">
             <div class="logo">
-                <a href="index.html">Zdrowy styl życia</a>
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Logo Zdrowy Styl Życia">
+                </a>
             </div>
 
             <nav class="main-nav">
@@ -28,8 +30,9 @@
         </header>
 
         <section class="hero">
-            <h1>Dbaj o siebie – małe kroki, duże efekty</h1>
-            <p>Proste porady dla młodzieży: ruch, zdrowe jedzenie i dobre nawyki każdego dnia.</p>
+            <div class="hero-content">
+                <h1>Dbaj o siebie – małe kroki, duże efekty</h1> <p>Proste porady dla młodzieży: ruch, zdrowe jedzenie i dobre nawyki każdego dnia.</p>
+            </div>
         </section>
 
         <main>
@@ -41,79 +44,46 @@
                 </p>
             </article>
 
-            <section class="cards">
-                <article class="card">
-                    <h3>Zdrowa dieta</h3>
-                    <p>Dowiedz się, jak skomponować proste, zdrowe posiłki dla nastolatków.</p>
-                    <a href="dieta.html" class="btn">Zobacz</a>
-                </article>
+            <section class="latest-posts">
+                <h2>Najnowsze wpisy</h2>
+                <div class="cards">
+                    <article class="card">
+                        <time datetime="2025-05-10">10 maja 2025</time> <h3>Zbilansowana dieta</h3> <p>Dowiedz się, jak skomponować proste, zdrowe posiłki dla nastolatków.</p>
+                        <a href="odzywianie.html" class="btn">Zobacz więcej</a> </article>
 
-                <article class="card">
-                    <h3>Ćwiczenia</h3>
-                    <p>Proste ćwiczenia, które możesz zrobić w domu, w szkole lub na boisku.</p>
-                    <a href="cwiczenia.html" class="btn">Zobacz</a>
-                </article>
+                    <article class="card">
+                        <time datetime="2025-05-08">8 maja 2025</time>
+                        <h3>Ruch to zdrowie</h3>
+                        <p>Proste ćwiczenia, które możesz zrobić w domu lub na boisku.</p>
+                        <a href="sportiruch.html" class="btn">Zobacz więcej</a> </article>
 
-                <article class="card">
-                    <h3>Ciekawostki</h3>
-                    <p>Sprawdź, jak sen, woda i stres wpływają na Twoje zdrowie.</p>
-                    <a href="ciekawostki.html" class="btn">Zobacz</a>
-                </article>
+                    <article class="card">
+                        <time datetime="2025-05-05">5 maja 2025</time>
+                        <h3>Mindset nastolatka</h3>
+                        <p>Sprawdź, jak sen i radzenie sobie ze stresem wpływają na Twoje zdrowie.</p>
+                        <a href="mind.html" class="btn">Zobacz więcej</a> </article>
+                </div>
             </section>
 
-            <section class="bmi-section">
-    <h2>Kalkulator BMI</h2>
-
-    <form id="bmiForm">
-        <label for="weight">Waga (kg):</label>
-        <input type="number" id="weight" min="20" max="300" required>
-
-        <label for="height">Wzrost (cm):</label>
-        <input type="number" id="height" min="80" max="250" required>
-
-        <button type="submit">Oblicz BMI</button>
-    </form>
-
-    <div id="bmiOutput"></div>
-</section>
-
-
+            <section class="quick-tools">
+                <div class="bmi-cta">
+                    <i class="fa-solid fa-calculator"></i>
+                    <h2>Sprawdź swoje BMI</h2>
+                    <p>Skorzystaj z naszego prostego kalkulatora, aby dowiedzieć się więcej o swojej wadze.</p>
+                    <a href="narzedzia.html" class="btn">Przejdź do kalkulatora</a> </div>
+            </section>
         </main>
 
         <footer class="site-footer">
+            <div class="social-media">
+                <a href="#"><img src="tiktok-icon.png" alt="TikTok"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <small>&copy; 2025 Zdrowy styl życia. Wszystkie prawa zastrzeżone.</small>
             <p>Autorzy: Karolina Sawicka, Karolina Woźnica, Eunika Niedźwiecka</p>
             <p>Projekt: „Zdrowy styl życia – poradnik dla młodzieży”</p>
         </footer>
 
     </div>
-
-    <script>
-    // Kalkulator BMI
-    document.getElementById("bmiForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const weight = parseFloat(document.getElementById("weight").value);
-        const height = parseFloat(document.getElementById("height").value) / 100;
-
-        if (!weight || !height) {
-            document.getElementById("bmiOutput").textContent = "Podaj poprawne dane.";
-            return;
-        }
-
-        const bmi = weight / (height * height);
-        const result = bmi.toFixed(1);
-
-        let category = "";
-        if (bmi < 18.5) category = "Niedowaga";
-        else if (bmi < 25) category = "Waga prawidłowa";
-        else if (bmi < 30) category = "Nadwaga";
-        else category = "Otyłość";
-
-        document.getElementById("bmiOutput").innerHTML =
-            `<strong>Twoje BMI:</strong> ${result}<br>
-             <strong>Kategoria:</strong> ${category}`;
-    });
-</script>
-
 </body>
 </html>

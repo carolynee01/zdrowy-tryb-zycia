@@ -1,3 +1,18 @@
+/* Import nowoczesnej czcionki Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+    --primary-green: #1a7f4b;    /* Główna zieleń  */
+    --accent-green: #5bd18e;     /* Jasna zieleń do gradientów  */
+    --accent-orange: #FF9800;    /* Kolor akcentowy - energia  */
+    --bg-light: #f9f9f9;
+    --text-dark: #2d2d2d;
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* 1. Reset i podstawy */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,139 +20,273 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Zgodnie z wytycznymi  */
     line-height: 1.6;
-    color: #222;
-    background-color: #f6f6f6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 20px;
 }
 
+/* 2. Nagłówek i Nawigacja */
 .site-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 20px 0;
 }
 
-.logo a {
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #1a7f4b;
+.logo img {
+    height: 120px; 
+    width: auto;   
+    transition: var(--transition);
+    display: block;
 }
 
+/* Kontener nawigacji */
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 8px; /* Odstęp między przyciskami */
+    flex-wrap: nowrap; /* Zapobiega przeskakiwaniu do nowej linii na desktopie */
 }
 
+/* Styl pojedynczego linku (przycisku) */
 .main-nav a {
     text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 999px;
-    color: #222;
+    display: block; /* Pozwala na prawidłowe nakładanie paddingu */
+    padding: 10px 20px;
+    border-radius: 50px; /* Idealnie zaokrąglone krawędzie */
+    color: var(--text-dark);
     background-color: #e0ffe8;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap; /* KLUCZ: wymusza tekst w jednej linii */
+    transition: var(--transition);
+    border: 2px solid transparent; /* Rezerwacja miejsca pod hover */
 }
 
+/* Efekt po najechaniu - dynamiczny design [cite: 10] */
 .main-nav a:hover {
-    background-color: #1a7f4b;
-    color: #fff;
+    background-color: var(--primary-green);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(26, 127, 75, 0.2);
 }
 
+/* Poprawka dla nagłówka, aby zmieścił logo i menu obok siebie */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+/* 3. Sekcja Hero */
 .hero {
-    background: linear-gradient(135deg, #1a7f4b, #5bd18e);
-    color: #fff;
-    padding: 40px 24px;
-    border-radius: 16px;
-    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-green)); /*  */
+    color: var(--white);
+    padding: 80px 40px;
+    border-radius: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
 }
 
 .hero h1 {
-    font-size: 2rem;
-    margin-bottom: 8px;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 4. Treść główna i Karty */
 main {
-    margin-bottom: 32px;
+    margin-bottom: 50px;
 }
 
 .intro {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 24px;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border-left: 8px solid var(--accent-orange);
+    box-shadow: var(--shadow);
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 25px;
+    margin-bottom: 40px;
 }
 
 .card {
-    background-color: #fff;
-    padding: 16px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card time {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .card h3 {
-    margin-bottom: 8px;
+    margin: 10px 0;
+    color: var(--primary-green);
 }
 
 .btn {
     display: inline-block;
-    margin-top: 8px;
-    padding: 8px 16px;
-    border-radius: 999px;
-    background-color: #1a7f4b;
-    color: #fff;
+    margin-top: 15px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background-color: var(--accent-orange); 
+    color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    transition: var(--transition);
+    border: none;
 }
 
 .btn:hover {
-    background-color: #145d37;
+    background-color: #e68a00;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
 }
 
-/* SEKCJA BMI */
-.bmi-section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-}
-
-.site-footer {
-    padding: 16px 0 32px;
-    font-size: 0.85rem;
+/* 5. Sekcja BMI (Szybkie narzędzia) */
+.bmi-section, .quick-tools {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 24px;
     text-align: center;
-    color: #555;
+    box-shadow: var(--shadow);
 }
 
-@media (max-width: 768px) {
+#bmiForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+    gap: 15px;
+}
+
+#bmiForm input {
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #eee;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+#bmiForm input:focus {
+    border-color: var(--primary-green);
+    outline: none;
+}
+
+#bmiOutput {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
+/* 6. Stopka */
+.site-footer {
+    padding: 40px 0;
+    border-top: 2px solid #eee;
+    text-align: center;
+}
+
+.social-media {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media img {
+    height: 32px;
+    transition: var(--transition);
+}
+
+.social-media img:hover {
+    transform: rotate(10deg) scale(1.2);
+}
+
+.site-footer small {
+    display: block;
+    margin-bottom: 10px;
+    color: #777;
+    font-weight: bold;
+}
+
+/* 7. Responsywność - Punkty Przełomowe */
+
+/* Komputery (powyżej 993px) */
+@media (min-width: 993px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolumny */
+    }
+    .hero {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* Tablety (577px do 992px) */
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolumny */
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* Smartfony (do 576px)*/
+@media (max-width: 576px) {
     .site-header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        gap: 20px;
     }
-
     .main-nav ul {
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center;
+        gap: 10px;
     }
-
     .cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 kolumna */
     }
-
     .hero {
-        padding: 24px 16px;
+        padding: 40px 20px;
+    }
+    .hero h1 {
+        font-size: 1.8rem;
     }
 }

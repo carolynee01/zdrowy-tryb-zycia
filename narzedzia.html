@@ -28,10 +28,32 @@
         </header>
 
         <main>
-           
-        </main>
+    <section class="bmi-section">
+        <h2>Kalkulator BMI</h2>
+        <p>Skorzystaj z naszego interaktywnego narzędzia, aby szybko sprawdzić swój wskaźnik masy ciała.</p>
 
+        <form id="bmiForm">
+            <label for="weight">Waga (kg):</label>
+            <input type="number" id="weight" min="20" max="300" required>
+
+            <label for="height">Wzrost (cm):</label>
+            <input type="number" id="height" min="80" max="250" required>
+
+            <button type="submit" class="btn">Oblicz BMI</button>
+        </form>
+
+        <div id="bmiOutput" style="margin-top: 20px;"></div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+        
         <footer class="site-footer">
+            <div class="social-media">
+                <a href="#"><img src="tiktok-icon.png" alt="TikTok"></a>
+                <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+            <small>&copy; 2025 Zdrowy styl życia. Wszystkie prawa zastrzeżone.</small>
             <p>Autorzy: Karolina Sawicka, Karolina Woźnica, Eunika Niedźwiecka</p>
             <p>Projekt: „Zdrowy styl życia – poradnik dla młodzieży”</p>
         </footer>
