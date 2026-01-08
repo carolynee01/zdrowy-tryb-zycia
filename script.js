@@ -94,6 +94,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <small>Pamiętaj, że podczas upałów lub intensywnego sportu powinieneś pić więcej!</small>`;
         });
     }
+	
+	
 
     /* --- 5. KALKULATOR KALORII (TDEE) --- */
     const calorieForm = document.getElementById("calorieForm");
@@ -122,3 +124,57 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+.content-section { margin: 40px 0; }
+.note { opacity: 0.85; margin-top: 14px; }
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.plan-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.exercise {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.about-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.clean-list { margin: 0; padding-left: 18px; }
+.form textarea { width: 100%; resize: vertical; }
+.checkbox { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; }
+.form-output { font-weight: 600; }
+
+/* RWD */
+@media (max-width: 992px) {
+  .plan-grid { grid-template-columns: repeat(2, 1fr); }
+  .exercise-grid { grid-template-columns: 1fr; }
+  .about-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 576px) {
+  .plan-grid { grid-template-columns: 1fr; }
+}
