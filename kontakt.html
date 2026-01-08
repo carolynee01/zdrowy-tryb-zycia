@@ -37,12 +37,71 @@
         </header>
 
         <main>
-            <section class="intro">
-                <h1>Tytuł Sekcji</h1>
-                <p>Tutaj wpisz treść artykułu, porady lub wskazówki dla młodzieży.</p>
-            </section>
-            
-            </main>
+  <section class="intro">
+    <h1>O nas / Kontakt</h1>
+    <p>
+      Projekt „Zdrowy styl życia – poradnik dla młodzieży” ma promować proste nawyki:
+      ruch, zdrowe jedzenie, sen i dbanie o głowę.
+    </p>
+  </section>
+
+  <section class="content-section about-grid">
+    <div class="about-card">
+      <h2>O projekcie</h2>
+      <p>
+        Strona ma formę edukacyjną i jest skierowana do młodzieży. Znajdziesz tu krótkie poradniki,
+        inspiracje treningowe oraz narzędzia (np. kalkulator BMI). 
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h2>Autorzy</h2>
+      <ul class="clean-list">
+        <li>Karolina Sawicka</li>
+        <li>Karolina Woźnica</li>
+        <li>Eunika Niedźwiecka</li>
+      </ul>
+      <p class="note">IAD, gr. lab.04 | Rok 2025/2026</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>Napisz do nas</h2>
+    <p>Masz pomysł na temat artykułu albo chcesz zgłosić błąd? Wypełnij formularz.</p>
+
+    <form id="contactForm" class="form">
+      <label for="name">Imię:</label>
+      <input type="text" id="name" name="name" minlength="2" maxlength="40" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="topic">Temat:</label>
+      <select id="topic" name="topic" class="bmi-section-select" required>
+        <option value="" selected disabled>Wybierz temat</option>
+        <option value="pytanie">Pytanie</option>
+        <option value="pomysl">Pomysł na artykuł</option>
+        <option value="blad">Zgłoszenie błędu</option>
+      </select>
+
+      <label for="message">Wiadomość:</label>
+      <textarea id="message" name="message" rows="6" minlength="10" maxlength="1000" required></textarea>
+
+      <label class="checkbox">
+        <input type="checkbox" id="consent" required>
+        Akceptuję przetwarzanie danych w celu obsługi wiadomości.
+      </label>
+
+      <button type="submit" class="btn">Wyślij</button>
+
+      <div id="contactOutput" class="form-output" aria-live="polite" style="margin-top: 14px;"></div>
+    </form>
+  </section>
+
+  <section class="content-section">
+  </section>
+</main>
+
 
         <footer class="site-footer">
             <div class="social-media">

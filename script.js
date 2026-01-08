@@ -94,6 +94,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <small>Pamiętaj, że podczas upałów lub intensywnego sportu powinieneś pić więcej!</small>`;
         });
     }
+	
+	
 
     /* --- 5. KALKULATOR KALORII (TDEE) --- */
     const calorieForm = document.getElementById("calorieForm");
@@ -122,3 +124,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
