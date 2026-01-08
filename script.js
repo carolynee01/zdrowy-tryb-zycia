@@ -48,4 +48,27 @@ document.addEventListener("DOMContentLoaded", function() {
                  <strong>Kategoria:</strong> ${category}`;
         });
     }
+
+    /* --- 3. SLIDER Z PORADAMI --- */
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+    let currentSlide = 0;
+
+    if (slides.length > 0) {
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add("active");
+        }
+
+        nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+        prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
+
+        // Automatyczna zmiana slajdu co 5 sekund
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+    }
 });

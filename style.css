@@ -88,26 +88,125 @@ body {
     gap: 20px;
 }
 
-/* 3. Sekcja Hero */
+/* 3. Sekcja Hero - ZMODYFIKOWANA DLA ZDJĘĆ */
+
+/* Usunięcie starego gradientu z głównego kontenera */
 .hero {
-    background: linear-gradient(135deg, var(--primary-green), var(--accent-green)); /*  */
-    color: var(--white);
-    padding: 80px 40px;
-    border-radius: 24px;
-    text-align: center;
+    background: none; /* Usuwamy tło, bo teraz tłem będą zdjęcia w slajdach */
+    padding: 0; /* Usuwamy padding, aby zdjęcia dotykały krawędzi */
+    border-radius: 24px; /* Zaokrąglenie zostaje */
+    overflow: hidden; /* Ważne: przycina zdjęcia do zaokrąglonych rogów */
     margin-bottom: 40px;
     box-shadow: var(--shadow);
+    position: relative;
 }
 
-.hero h1 {
-    font-size: 2.8rem;
+/* Kontener slidera */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Ustalamy stałą wysokość na mobilkach */
+}
+
+/* Styl pojedynczego slajdu ze zdjęciem */
+.slide {
+    display: none;
+    height: 100%;
+    /* Ustawienia tła obrazkowego */
+    background-size: cover;   /* Zdjęcie pokrywa cały obszar */
+    background-position: center; /* Zdjęcie jest wyśrodkowane */
+    position: relative; /* Konieczne dla pozycjonowania nakładki */
+}
+
+.slide.active {
+    display: block;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* --- KLUCZOWY ELEMENT: PRZYCIEMNIAJĄCA NAKŁADKA (OVERLAY) --- */
+/* Tworzymy "sztuczny" element przed zawartością slajdu */
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient od półprzezroczystej zieleni do ciemniejszego dołu */
+    background: linear-gradient(to bottom, rgba(26, 127, 75, 0.4), rgba(0, 0, 0, 0.8));
+    z-index: 1; /* Nakładka jest nad zdjęciem (z-index: 0) */
+}
+
+/* Kontener na tekst, aby był nad nakładką */
+.slide-caption {
+    position: relative;
+    z-index: 2; /* Tekst jest nad nakładką (z-index: 1) */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 20px 60px; /* Padding boczny, by tekst nie wchodził na strzałki */
+}
+
+/* Zwiększenie czytelności tekstu */
+.slide-caption h1 {
+    font-size: 2.5rem;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Mocniejszy cień pod tekstem */
 }
 
-.hero p {
+.slide-caption p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    max-width: 600px; /* Ograniczenie szerokości tekstu dla lepszego wyglądu */
+}
+
+/* Przyciski nawigacji */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1); /* Bardziej subtelne tło przycisków */
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: var(--transition);
+    z-index: 3; /* Przyciski muszą być na samym wierzchu */
+}
+
+.slider-btn:hover {
+    background: var(--accent-orange);
+    color: var(--white);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsywność */
+@media (min-width: 993px) {
+    .slider-container {
+        height: 75vh; /* Na dużych ekranach slider zajmuje 75% wysokości okna */
+    }
+    .slide-caption h1 {
+        font-size: 3.5rem; /* Większy nagłówek na desktopie */
+    }
+}
+
+@media (max-width: 576px) {
+    .slider-container {
+        height: 400px; /* Mniejsza wysokość na telefonach */
+    }
+    .slide-caption {
+        padding: 20px 40px; /* Mniejszy padding boczny na telefonach */
+    }
+    .slide-caption h1 {
+        font-size: 1.8rem;
+    }
 }
 
 /* 4. Treść główna i Karty */
