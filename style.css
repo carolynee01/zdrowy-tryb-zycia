@@ -222,11 +222,13 @@ main { margin-bottom: 50px; }
 
 /* --- Odżywianie --- */
 
+/* HERO */
 .subpage-hero {
     height: 50vh;
     background-size: cover;
     background-position: center;
-    position: relative;
+	border-radius: 0 0 40px 40px;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -238,24 +240,95 @@ main { margin-bottom: 50px; }
     align-items: center;
     color: #fff;
     text-align: center;
-    padding: 20px;
 }
 
-.content-image {
-    display: flex;
-    gap: 40px;
+/* INTRO */
+.intro {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
     margin: 60px 0;
+    box-shadow: var(--shadow);
+}
+
+/* SEKCJE */
+.article-section {
+    background: #ffffff;
+    padding: 60px 40px;
+    margin: 60px 0;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+
+.article-section.alt {
+    background: linear-gradient(135deg, #f2fff7, #ffffff);
+}
+
+.article-section h2 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.article-section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent-orange);
+    display: block;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* TEKST + OBRAZ */
+.content-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
     align-items: center;
 }
 
 .content-image.reverse {
-    flex-direction: row-reverse;
+    direction: rtl;
+}
+
+.content-image.reverse > * {
+    direction: ltr;
 }
 
 .content-image img {
-    max-width: 100%;
-    border-radius: 12px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
+
+/* LISTY */
+.tips-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.tips-list li {
+    margin-bottom: 8px;
+}
+
+/* KARTY */
+.cards-section {
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 24px;
+    margin: 80px 0;
+    box-shadow: var(--shadow);
+}
+
+.cards-section h2 {
+    text-align: center;
+    margin-top: -40px; /* przesunięcie w górę */
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--primary-green);
+}
+
 
 .cards-grid {
     display: grid;
@@ -265,30 +338,155 @@ main { margin-bottom: 50px; }
 
 .cards-section .card {
     text-align: center;
-    padding: 25px;
-    border-radius: 12px;
+    padding: 30px;
+    border-radius: 16px;
     background: #f7f7f7;
 }
 
-.cards-section i {
-    font-size: 2.5rem;
-    color: #2ECC71;
-    margin-bottom: 10px;
-}
-
+/* GRID ZDJĘĆ */
 .image-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
 }
 
 .image-grid img {
-    width: 100%;
-    height: 260px;   /* WIĘKSZE */
+    height: 280px;
     object-fit: cover;
-    border-radius: 14px;
 }
 
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .content-image {
+        grid-template-columns: 1fr;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recipes-section {
+    background: #f7fff7;
+    padding: 60px 40px;
+    border-radius: 24px;
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+}
+
+.recipes-section h2 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.recipes-section .section-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.recipe-card h3 {
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.recipe-card .btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--accent-orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.recipe-card .btn:hover {
+    background: #e68a00;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-card img {
+        height: 220px;
+    }
+}
+
+.detailed-recipes {
+    margin-top: 60px;
+}
+
+.recipe-detail {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+.recipe-detail h2 {
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.recipe-detail h3 {
+    color: var(--accent-orange);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.recipe-detail ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe-detail ul li {
+    margin-bottom: 5px;
+}
+
+.recipe-detail p {
+    line-height: 1.5;
+}
 
 
 
