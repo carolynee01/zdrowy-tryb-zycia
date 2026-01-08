@@ -259,34 +259,102 @@ main {
     }
 }
 
-/* Tablety (577px do 992px) */
-@media (max-width: 992px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr); /* 2 kolumny */
-    }
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-}
-
-/* Smartfony (do 576px)*/
-@media (max-width: 576px) {
+/* TABLETY (od 577px do 992px)  */
+@media (min-width: 577px) and (max-width: 992px) {
     .site-header {
         flex-direction: column;
         gap: 20px;
     }
+
+    .main-nav {
+        width: 100%;
+    }
+
     .main-nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        display: grid; /* Wykorzystanie technologii Grid zgodnie ze specyfikacją [cite: 53] */
+        grid-template-columns: repeat(3, 1fr); /* Tworzy dokładnie 3 kolumny */
+        gap: 10px; /* Odstępy między przyciskami */
+        width: 100%;
     }
-    .cards {
-        grid-template-columns: 1fr; /* 1 kolumna */
+
+    .main-nav a {
+        display: block;
+        text-align: center;
+        padding: 12px 5px; /* Dostosowanie wypełnienia, aby tekst się mieścił */
+        font-size: 0.8rem; /* Lekkie zmniejszenie czcionki dla lepszego dopasowania */
+        white-space: nowrap; /* Zapobiega łamaniu tekstu wewnątrz przycisków */
     }
-    .hero {
-        padding: 40px 20px;
+}
+
+/* Styl dla przycisku hamburgera */
+.hamburger {
+    display: none; /* Ukryty na komputerach */
+    background: #e0ffe8; /* Kolor tła dopasowany do menu */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 1001; /* Musi być nad menu */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--primary-green); /* Używamy Twojego koloru głównego */
+    transition: 0.3s;
+}
+
+/* WIDOK MOBILNY (zgodnie z dokumentacją poniżej 768px) */
+@media (max-width: 768px) {
+    /* Przycisk hamburgera/X */
+    .hamburger {
+        display: block;
+        position: relative;
+        z-index: 1100; /* Wyższy z-index niż menu, aby zawsze był na wierzchu */
+        transition: var(--transition);
     }
-    .hero h1 {
-        font-size: 1.8rem;
+
+    /* Gdy menu jest otwarte, przycisk "X" powinien być nieruchomy */
+    .hamburger.active {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Panel rozwijanego menu */
+    .main-nav {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98); 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Startujemy od góry */
+        padding-top: 120px; /* KLUCZ: Miejsce na przycisk X, by nie zasłaniał linków */
+        transition: 0.4s ease-in-out;
+        z-index: 1050; /* Nieco niższy niż przycisk hamburgera */
+    }
+
+    .main-nav.active {
+        left: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .main-nav a {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
     }
 }
