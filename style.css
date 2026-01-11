@@ -443,7 +443,7 @@ main { margin-bottom: 50px; }
   color: var(--text-dark);
 }
 
-}
+
 
 /* Kontakt: tekst w hero na czarno */
 .contact-hero__content p{
@@ -596,3 +596,374 @@ main { margin-bottom: 50px; }
 @media (min-width: 993px){
   .sport-card__img{ height: 200px; }
 }
+
+
+/* --- Odżywianie --- */
+
+/* HERO */
+.subpage-hero {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+	border-radius: 0 0 40px 40px;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+/* INTRO */
+.intro {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+}
+
+/* SEKCJE */
+.article-section {
+    background: #ffffff;
+    padding: 60px 40px;
+    margin: 60px 0;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+}
+
+.article-section.alt {
+    background: linear-gradient(135deg, #f2fff7, #ffffff);
+}
+
+.article-section h2 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+}
+
+.article-section h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent-orange);
+    display: block;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/* TEKST + OBRAZ */
+.content-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.content-image.reverse {
+    direction: rtl;
+}
+
+.content-image.reverse > * {
+    direction: ltr;
+}
+
+.content-image img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* LISTY */
+.tips-list {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.tips-list li {
+    margin-bottom: 8px;
+}
+
+/* KARTY */
+.cards-section {
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 24px;
+    margin: 80px 0;
+    box-shadow: var(--shadow);
+}
+
+.cards-section h2 {
+    text-align: center;
+    margin-top: -40px; /* przesunięcie w górę */
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: var(--primary-green);
+}
+
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.cards-section .card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 16px;
+    background: #f7f7f7;
+}
+
+/* GRID ZDJĘĆ */
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.image-grid img {
+    height: 280px;
+    object-fit: cover;
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .content-image {
+        grid-template-columns: 1fr;
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.recipes-section {
+    background: #f7fff7;
+    padding: 60px 40px;
+    border-radius: 24px;
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+}
+
+.recipes-section h2 {
+    font-size: 2rem;
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.recipes-section .section-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.recipe-card h3 {
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.recipe-card .btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--accent-orange);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.recipe-card .btn:hover {
+    background: #e68a00;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+/* RESPONSYWNOŚĆ */
+@media (max-width: 768px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recipe-card img {
+        height: 220px;
+    }
+}
+
+.detailed-recipes {
+    margin-top: 60px;
+}
+
+.recipe-detail {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+.recipe-detail h2 {
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.recipe-detail h3 {
+    color: var(--accent-orange);
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.recipe-detail ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.recipe-detail ul li {
+    margin-bottom: 5px;
+}
+
+.recipe-detail p {
+    line-height: 1.5;
+}
+
+
+
+
+/* --- Strefa Mind --- */
+
+.mind-section {
+    padding: 80px 40px;
+    margin-bottom: 60px;
+    background-color: var(--white);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+}
+
+
+.mind-section.alt-bg {
+    background: linear-gradient(135deg, #e0ffe8, #ffffff);
+}
+
+
+.mind-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mind-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.mind-text {
+    flex: 1;
+}
+
+.mind-text h2 {
+    font-size: 2.3rem;
+    color: var(--primary-green);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+
+.mind-text p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.mind-text ul {
+    padding-left: 20px;
+}
+
+.mind-text ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+
+.mind-image {
+    flex: 1;
+}
+
+.mind-image img {
+    width: 100%;
+    max-width: 620px;      
+    height: 360px;         
+    object-fit: cover;
+    border-radius: 24px; 
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.mind-tip {
+    background: var(--primary-green);
+    color: white;
+    padding: 50px 30px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.fact-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+
+/* Responsywność */
+@media (max-width: 992px) {
+    .mind-content, .mind-content.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .mind-text h2 { text-align: center; }
+    .mind-text ul { text-align: center; padding-left: 0; }
+}
+
