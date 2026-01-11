@@ -123,5 +123,76 @@ document.addEventListener("DOMContentLoaded", function() {
                 <small>Twoje zapotrzebowanie zerowe (utrzymanie wagi) wynosi ok. ${tdee} kcal.</small>`;
         });
     }
+	
+	/* --- 6. SLIDER ZDJĘĆ NA STRONIE KONTAKT --- */
+const contactHeroImgs = document.querySelectorAll(".contact-hero__img");
+let contactIndex = 0;
+
+if (contactHeroImgs.length > 0) {
+  setInterval(() => {
+    contactHeroImgs[contactIndex].classList.remove("is-active");
+    contactIndex = (contactIndex + 1) % contactHeroImgs.length;
+    contactHeroImgs[contactIndex].classList.add("is-active");
+  }, 5000);
+}
+
 });
 
+(function () {
+  const slider = document.querySelector('[data-slider="sport"]');
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  const btnPrev = slider.querySelector('[data-prev]');
+  const btnNext = slider.querySelector('[data-next]');
+
+  let index = slides.findIndex(s => s.classList.contains('active'));
+  if (index < 0) index = 0;
+
+  const show = (i) => {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[i].classList.add('active');
+    index = i;
+  };
+
+  const next = () => show((index + 1) % slides.length);
+  const prev = () => show((index - 1 + slides.length) % slides.length);
+
+  btnNext?.addEventListener('click', next);
+  btnPrev?.addEventListener('click', prev);
+
+  let timer = setInterval(next, 6000);
+
+
+  slider.addEventListener('mouseenter', () => clearInterval(timer));
+  slider.addEventListener('mouseleave', () => (timer = setInterval(next, 6000)));
+})();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggles = document.querySelectorAll(".btn-toggle");
+
+  toggles.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const id = btn.getAttribute("aria-controls");
+      const panel = id ? document.getElementById(id) : null;
+      if (!panel) return;
+
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      document.querySelectorAll(".btn-toggle[aria-expanded='true']").forEach((otherBtn) => {
+        if (otherBtn === btn) return;
+        const otherId = otherBtn.getAttribute("aria-controls");
+        const otherPanel = otherId ? document.getElementById(otherId) : null;
+        otherBtn.setAttribute("aria-expanded", "false");
+        otherBtn.textContent = "Czytaj";
+        if (otherPanel) otherPanel.hidden = true;
+      });
+
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      btn.textContent = isOpen ? "Czytaj" : "Zwiń";
+      panel.hidden = isOpen; 
+    });
+  });
+});

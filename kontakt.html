@@ -37,70 +37,114 @@
         </header>
 
         <main>
-  <section class="intro">
-    <h1>O nas / Kontakt</h1>
-    <p>
-      Projekt „Zdrowy styl życia – poradnik dla młodzieży” ma promować proste nawyki:
-      ruch, zdrowe jedzenie, sen i dbanie o głowę.
-    </p>
+  <!-- HERO z mini-slajderem -->
+  <section class="contact-hero">
+    <div class="contact-hero__media">
+      <img class="contact-hero__img is-active" src="img/kontakt-01.jpg" alt="Krajobraz – zdjęcie 1">
+      <img class="contact-hero__img" src="img/kontakt-02.jpg" alt="Krajobraz – zdjęcie 2">
+      <img class="contact-hero__img" src="img/kontakt-03.jpg" alt="Krajobraz – zdjęcie 3">
+      <div class="contact-hero__overlay"></div>
+    </div>
+
+    <div class="contact-hero__content">
+      <h1>Poznaj nas i skontaktuj się</h1>
+      <p>
+         Prowadzimy stronę o zdrowych nawykach i codziennych wyborach, które realnie poprawiają samopoczucie.
+  Jeśli masz pytanie, sugestię lub zauważysz błąd, skontaktuj się z nami.
+      </p>
+    </div>
   </section>
 
-  <section class="content-section about-grid">
-    <div class="about-card">
-      <h2>O projekcie</h2>
+  <!-- 2 kolumny: O nas + Formularz -->
+  <section class="contact-grid">
+    <div class="contact-card">
+      <h2>O stronie</h2>
       <p>
-        Strona ma formę edukacyjną i jest skierowana do młodzieży. Znajdziesz tu krótkie poradniki,
-        inspiracje treningowe oraz narzędzia (np. kalkulator BMI). 
+        Znajdziesz tu krótkie poradniki, inspiracje do ruchu oraz praktyczne narzędzia
+        (np. kalkulator BMI). Stawiamy na rozwiązania, które da się wdrożyć od razu.
+      </p>
+
+      <div class="about-tiles">
+        <div class="tile">
+          <h3>Co znajdziesz?</h3>
+          <p>Ruch, odżywianie, regeneracja oraz praktyczne wskazówki do wdrożenia od razu.</p>
+        </div>
+        <div class="tile">
+          <h3>Dla kogo?</h3>
+          <p>Dla osób, które chcą uporządkować podstawy zdrowego stylu życia.</p>
+        </div>
+        <div class="tile">
+          <h3>Jak działamy?</h3>
+          <p>Porządkujemy informacje i podajemy je w prostej formie, aby łatwo było je wdrożyć.</p>
+        </div>
+      </div>
+
+      <h2 style="margin-top:22px;">Zespół</h2>
+      <div class="team">
+        <div class="team__person"><span>Karolina</span><span>Sawicka</span></div>
+        <div class="team__person"><span>Karolina</span><span>Woźnica</span></div>
+        <div class="team__person"><span>Eunika</span><span>Niedźwiecka</span></div>
+      </div>
+
+      <p class="muted" style="margin-top:10px;">
+         Tworzymy zespół osób zainteresowanych edukacją zdrowotną. Naszym celem jest pokazywanie prostych rozwiązań,
+  które pomagają budować dobre nawyki i lepiej planować codzienność.
       </p>
     </div>
 
-    <div class="about-card">
-      <h2>Autorzy</h2>
-      <ul class="clean-list">
-        <li>Karolina Sawicka</li>
-        <li>Karolina Woźnica</li>
-        <li>Eunika Niedźwiecka</li>
-      </ul>
-      <p class="note">IAD, gr. lab.04 | Rok 2025/2026</p>
+    <div class="contact-card">
+      <h2>Napisz do nas</h2>
+      <p class="muted">Pola oznaczone * są wymagane.</p>
+
+      <form id="contactForm" class="form">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Imię *</label>
+            <input type="text" id="name" name="name" autocomplete="given-name" required>
+            <small class="error" id="errName"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <small class="error" id="errEmail"></small>
+          </div>
+
+          <div class="field field--full">
+            <label for="topic">Temat *</label>
+            <select id="topic" name="topic" required>
+              <option value="" selected disabled>Wybierz temat</option>
+              <option value="pytanie">Pytanie</option>
+              <option value="pomysl">Pomysł na treść</option>
+              <option value="blad">Zgłoszenie błędu</option>
+            </select>
+            <small class="error" id="errTopic"></small>
+          </div>
+
+          <div class="field field--full">
+            <label for="message">Wiadomość *</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+            <small class="error" id="errMsg"></small>
+          </div>
+
+          <div class="field field--full">
+            <label class="checkbox">
+              <input type="checkbox" id="consent" required>
+              Akceptuję przetwarzanie danych osobowych *
+            </label>
+            <small class="error" id="errConsent"></small>
+          </div>
+
+          <div class="field field--full form-actions">
+            <button type="submit" class="btn">Wyślij</button>
+            <div id="contactOutput" class="form-output" aria-live="polite"></div>
+          </div>
+        </div>
+      </form>
     </div>
   </section>
-
-  <section class="content-section">
-    <h2>Napisz do nas</h2>
-    <p>Masz pomysł na temat artykułu albo chcesz zgłosić błąd? Wypełnij formularz.</p>
-
-    <form id="contactForm" class="form">
-      <label for="name">Imię:</label>
-      <input type="text" id="name" name="name" minlength="2" maxlength="40" required>
-
-      <label for="email">E-mail:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="topic">Temat:</label>
-      <select id="topic" name="topic" class="bmi-section-select" required>
-        <option value="" selected disabled>Wybierz temat</option>
-        <option value="pytanie">Pytanie</option>
-        <option value="pomysl">Pomysł na artykuł</option>
-        <option value="blad">Zgłoszenie błędu</option>
-      </select>
-
-      <label for="message">Wiadomość:</label>
-      <textarea id="message" name="message" rows="6" minlength="10" maxlength="1000" required></textarea>
-
-      <label class="checkbox">
-        <input type="checkbox" id="consent" required>
-        Akceptuję przetwarzanie danych w celu obsługi wiadomości.
-      </label>
-
-      <button type="submit" class="btn">Wyślij</button>
-
-      <div id="contactOutput" class="form-output" aria-live="polite" style="margin-top: 14px;"></div>
-    </form>
-  </section>
-
-  <section class="content-section">
-  </section>
 </main>
+
 
 
         <footer class="site-footer">
