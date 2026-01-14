@@ -491,8 +491,10 @@ main {
     height: 50vh;
     background-size: cover;
     background-position: center;
-    border-radius: 0 0 40px 40px;
+    border-radius: 0 0 40px 40px; /* Zaokrąglenie tylko na dole */
     overflow: hidden;
+    margin-bottom: 40px; /* KLUCZ: To doda przerwę, o którą prosisz */
+    position: relative;
 }
 
 .hero-overlay {
@@ -688,8 +690,16 @@ main {
 }
 
 .mind-text p { font-size: 1rem; margin-bottom: 15px; line-height: 1.5; }
-.mind-text ul { padding-left: 20px; }
-.mind-text ul li { margin-bottom: 10px; font-size: 1rem; }
+.mind-text ul {
+    list-style-position: inside; 
+    padding-left: 0;
+    text-align: left;            
+}
+
+.mind-text ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
 
 .mind-image { flex: 1; }
 .mind-image img {
@@ -763,12 +773,18 @@ main {
     .contact-grid, .about-tiles, .team { grid-template-columns: 1fr; }
     .contact-hero { height: 280px; }
 
-    .mind-content, .mind-content.reverse {
+.mind-content, .mind-content.reverse {
         flex-direction: column;
         text-align: center;
     }
+
     .mind-text h2 { text-align: center; }
-    .mind-text ul { text-align: center; padding-left: 0; }
+
+    .mind-text ul { 
+        display: inline-block;   
+        text-align: left;        
+        padding-left: 0; 
+    }
 }
 
 /* Specyficzne dla tabletów (577px - 992px) */
