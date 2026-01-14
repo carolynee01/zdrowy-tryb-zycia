@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(response => {
                     if (response.ok) {
                         output.style.color = "var(--primary-green)";
-                        output.innerHTML = "<strong>Sukces!</strong> Wiadomość została zapisana w Netlify.";
+                        output.innerHTML = "<strong>Sukces!</strong> Wiadomość została zapisana.";
                         contactForm.reset();
                     } else {
                         throw new Error("Błąd serwera Netlify");
