@@ -123,6 +123,47 @@ document.addEventListener("DOMContentLoaded", function() {
                 <small>Twoje zapotrzebowanie zerowe (utrzymanie wagi) wynosi ok. ${tdee} kcal.</small>`;
         });
     }
+
+    const weatherContainer = document.getElementById("weatherContainer");
+
+    if (weatherContainer) {
+    const apiKey = "4c42fe9ebbf93684e3ba1ce28c169465"
+; // Wklej tutaj swój klucz po rejestracji
+    const city = "Lublin";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pl`;
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error("Błąd pobierania danych");
+            return response.json();
+        })
+        .then(data => {
+            const temp = Math.round(data.main.temp);
+            const desc = data.weather[0].description;
+            const icon = data.weather[0].icon;
+
+            // Logika rekomendacji dla sportowca
+            let recommendation = "Idealne warunki na trening!";
+            if (temp < 5) recommendation = "Zimno! Ubierz się warstwowo na bieg.";
+            if (temp > 25) recommendation = "Gorąco! Nie zapomnij o dużej ilości wody.";
+            if (desc.includes("deszcz")) recommendation = "Pada deszcz. Może dzisiaj trening w domu?";
+
+            weatherContainer.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; gap: 15px;">
+                    <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="Ikona pogody">
+                    <div style="text-align: left;">
+                        <h3 style="margin:0;">${city}: ${temp}°C</h3>
+                        <p style="margin:0; text-transform: capitalize;">${desc}</p>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; font-weight: bold; color: var(--primary-green);">${recommendation}</p>
+            `;
+        })
+        .catch(err => {
+            weatherContainer.innerHTML = "<p>Nie udało się załadować pogody. Sprawdź klucz API.</p>";
+            console.error(err);
+        });
+}
 	
 	/* --- 6. SLIDER ZDJĘĆ NA STRONIE KONTAKT --- */
 const contactHeroImgs = document.querySelectorAll(".contact-hero__img");
@@ -196,3 +237,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
