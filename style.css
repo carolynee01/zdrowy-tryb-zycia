@@ -1,4 +1,6 @@
-/* --- 1. IMPORTY I ZMIENNE --- */
+/* ==========================================================================
+   1. IMPORTY I ZMIENNE (ROOT)
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
@@ -12,7 +14,9 @@
     --transition: all 0.3s ease;
 }
 
-/* --- 2. RESET I PODSTAWY --- */
+/* ==========================================================================
+   2. RESET I PODSTAWY
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,7 +24,7 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Zgodnie z wytycznymi */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: var(--bg-light);
@@ -32,7 +36,13 @@ body {
     padding: 0 20px;
 }
 
-/* --- 3. NAGŁÓWEK I NAWIGACJA (DESKTOP) --- */
+main { 
+    margin-bottom: 50px; 
+}
+
+/* ==========================================================================
+   3. NAGŁÓWEK I NAWIGACJA
+   ========================================================================== */
 .site-header {
     display: flex;
     justify-content: space-between;
@@ -48,6 +58,7 @@ body {
     display: block;
 }
 
+/* Nawigacja Desktop */
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -77,7 +88,88 @@ body {
     box-shadow: 0 4px 8px rgba(26, 127, 75, 0.2);
 }
 
-/* --- 4. SEKCJA HERO I SLIDER --- */
+/* Hamburger (Mobilny) */
+.hamburger {
+    display: none;
+    background: #e0ffe8;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--primary-green);
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   4. KOMPONENTY WSPÓLNE (Przyciski, Karty, Intro)
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background-color: var(--accent-orange); 
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e68a00;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+}
+
+.intro {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border-left: 8px solid var(--accent-orange);
+    box-shadow: var(--shadow);
+}
+
+/* Standardowe karty (Blog/News) */
+.cards {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover { transform: scale(1.03); }
+
+.card time {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card h3 { margin: 10px 0; color: var(--primary-green); }
+
+/* ==========================================================================
+   5. SEKCJA HERO I SLIDER
+   ========================================================================== */
 .hero {
     background: none;
     padding: 0;
@@ -161,66 +253,9 @@ body {
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* --- 5. TREŚĆ GŁÓWNA I ARTYKUŁY --- */
-main { margin-bottom: 50px; }
-
-.intro {
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 40px;
-    border-left: 8px solid var(--accent-orange);
-    box-shadow: var(--shadow);
-}
-
-.cards {
-    display: grid;
-    gap: 25px;
-    margin-bottom: 40px;
-}
-
-.card {
-    background-color: var(--white);
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card:hover { transform: scale(1.03); }
-
-.card time {
-    font-size: 0.8rem;
-    color: #888;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.card h3 { margin: 10px 0; color: var(--primary-green); }
-
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 30px;
-    background-color: var(--accent-orange); 
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
-    transition: var(--transition);
-    border: none;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #e68a00;
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
-}
-
-/* --- 6. NARZĘDZIA I FORMULARZE (BMI, WODA, KALORIE) --- */
+/* ==========================================================================
+   6. NARZĘDZIA (BMI, KALORIE, WODA)
+   ========================================================================== */
 .bmi-section, .quick-tools {
     background-color: var(--white);
     padding: 40px;
@@ -232,10 +267,10 @@ main { margin-bottom: 50px; }
 
 .bmi-section form {
     display: flex;
-    flex-direction: column; /* Układ pionowy */
+    flex-direction: column;
     gap: 15px;
     max-width: 400px;
-    margin: 30px auto; /* Centrowanie formularza */
+    margin: 30px auto;
     text-align: left;
 }
 
@@ -272,340 +307,191 @@ main { margin-bottom: 50px; }
     text-align: center;
 }
 
-/* --- 7. STOPKA --- */
-.site-footer {
-    padding: 40px 0;
-    border-top: 2px solid #eee;
-    text-align: center;
+/* ==========================================================================
+   7. KONTAKT
+   ========================================================================== */
+.contact-hero, .contact-grid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.social-media {
-    margin-bottom: 20px;
+.contact-hero {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow);
+}
+
+.contact-hero__media {
+    position: absolute;
+    inset: 0;
+}
+
+.contact-hero__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 700ms ease;
+    filter: grayscale(75%);
+}
+
+.contact-hero__img.is-active { opacity: 1; }
+
+.contact-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.60), rgba(255,255,255,0.18));
+}
+
+.contact-hero__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    max-width: 760px;
+    padding: 26px;
 }
 
-.social-media img { height: 32px; transition: var(--transition); }
-.social-media img:hover { transform: rotate(10deg) scale(1.2); }
+.contact-hero__content h1 { margin-bottom: 10px; color: var(--text-dark); }
+.contact-hero__content p { color: var(--text-dark); opacity: 1; }
 
-.site-footer small {
-    display: block;
-    margin-bottom: 10px;
-    color: #777;
-    font-weight: bold;
-}
-
-/* --- 8. RESPONSYWNOŚĆ I HAMBURGER --- */
-.hamburger {
-    display: none;
-    background: #e0ffe8;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.hamburger .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: var(--primary-green);
-    transition: 0.3s;
-}
-
-/* Desktop (>993px) */
-@media (min-width: 993px) {
-    .cards { grid-template-columns: repeat(3, 1fr); }
-    .slider-container { height: 75vh; }
-    .slide-caption h1 { font-size: 3.5rem; }
-}
-
-/* Tablety (577px - 992px) */
-@media (min-width: 577px) and (max-width: 992px) {
-    .site-header { flex-direction: column; gap: 20px; }
-    .main-nav ul {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        width: 100%;
-    }
-    .cards { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Mobilne (<768px dla Hamburgera) */
-@media (max-width: 768px) {
-    .hamburger { display: block; position: relative; z-index: 1100; }
-    .hamburger.active { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); }
-
-    .main-nav {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.98);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 120px;
-        transition: 0.4s ease-in-out;
-        z-index: 1050;
-    }
-    .main-nav.active { left: 0; }
-    .main-nav ul { flex-direction: column; gap: 15px; }
-    .cards { grid-template-columns: 1fr; }
-    .slide-caption h1 { font-size: 1.8rem; }
-    .slider-container { height: 400px; }
-}
-
-/* Animacje */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
-/* =======================
-   KONTAKT – UJEDNOLICENIE SKALI (ważne)
-   ======================= */
-
-/* Kontakt ma mieć taką samą „szerokość” jak reszta stron w .container */
-.contact-hero,
 .contact-grid {
-  width: 100%;
-  max-width: none;      /* <- usuwa efekt „pomniejszenia” */
-  margin-left: 0;
-  margin-right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 40px;
 }
 
-
-
-
-.contact-hero{
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 26px;
-  box-shadow: var(--shadow);            /* <-- TU sterujesz „jak duży” jest hero */
+.contact-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
 }
 
-/* warstwa zdjęć */
-.contact-hero__media{
-  position: absolute;
-  inset: 0;
+.muted { opacity: 0.85; }
+
+/* Kafelki O stronie i Zespół */
+.about-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
 }
 
-/* każde zdjęcie „na siebie”, a nie pod sobą */
-.contact-hero__img{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* zdjęcie docina się do kontenera */
-  opacity: 0;
-  transition: opacity 700ms ease;
-  filter: grayscale(75%);   /* wyszarzenie */
+.tile {
+    background: rgba(0,0,0,0.03);
+    border-radius: 14px;
+    padding: 12px;
 }
 
-/* aktywne zdjęcie widoczne */
-.contact-hero__img.is-active{
-  opacity: 1;
+.team {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 10px;
 }
 
-/* overlay, żeby tekst był czytelny */
-.contact-hero__overlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.92),
-    rgba(255,255,255,0.60),
-    rgba(255,255,255,0.18)
-  );
+.team__person {
+    background: rgba(0,0,0,0.03);
+    border-radius: 14px;
+    padding: 10px 12px;
+    font-weight: 700;
 }
 
-/* tekst na zdjęciu */
-.contact-hero__content{
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 760px;
-  padding: 26px;
+.team__person span { display: block; line-height: 1.2; }
+
+/* Formularz Kontaktowy */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
 }
 
-.contact-hero__content h1{
-  margin-bottom: 10px;
-  color: var(--text-dark);
+.field--full { grid-column: 1 / -1; }
+
+.field label {
+    display:block;
+    margin-bottom: 6px;
+    font-weight: 700;
 }
 
-
-
-/* Kontakt: tekst w hero na czarno */
-.contact-hero__content p{
-  color: var(--text-dark);
-  opacity: 1;
+.field input, .field select, .field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid var(--accent-green);
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
 }
 
-
-/* układ 2 kolumny */
-.contact-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 40px;
+.field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 8px rgba(26, 127, 75, 0.2);
 }
 
-.contact-card{
-  background: var(--white);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: var(--shadow);
+.is-invalid {
+    border-color: #b00020 !important;
+    box-shadow: 0 0 0 3px rgba(176,0,32,0.10) !important;
 }
 
-.muted{ opacity: 0.85; }
-
-/* kafelki w „O stronie” */
-.about-tiles{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 14px;
-}
-.tile{
-  background: rgba(0,0,0,0.03);
-  border-radius: 14px;
-  padding: 12px;
+.error {
+    display: block;
+    min-height: 16px;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #b00020;
 }
 
-/* zespół jako „kafelki” */
-.team{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 10px;
-}
-.team__person{
-  background: rgba(0,0,0,0.03);
-  border-radius: 14px;
-  padding: 10px 12px;
-  font-weight: 700;
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-/* formularz grid */
-.form-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
+.checkbox input {
+    margin: 0;
+    width: 12px;
+    height: 12px;
 }
 
-.field--full{ grid-column: 1 / -1; }
-
-.field label{
-  display:block;
-  margin-bottom: 6px;
-  font-weight: 700;
+.form-actions {
+    display:flex;
+    align-items:center;
+    gap: 12px;
 }
 
-.field input,
-.field select,
-.field textarea{
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid var(--accent-green);
-  font-family: inherit;
-  outline: none;
-  transition: var(--transition);
+/* ==========================================================================
+   8. RUCH I SPORT
+   ========================================================================== */
+.sport-card__img {
+    width: 100%;
+    height: 180px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-  border-color: var(--primary-green);
-  box-shadow: 0 0 8px rgba(26, 127, 75, 0.2);
-}
-
-.error{
-  display: block;
-  min-height: 16px;
-  margin-top: 6px;
-  font-size: 0.85rem;
-  color: #b00020;
-}
-
-.is-invalid{
-  border-color: #b00020 !important;
-  box-shadow: 0 0 0 3px rgba(176,0,32,0.10) !important;
-}
-
-.checkbox{
-  display: flex;
-  align-items: center;  /* <- to wyrówna w jednej linii */
-  gap: 4px;
-}
-
-.checkbox input{
-  margin: 0;           /* usuwa dziwne przesunięcia */
-  width: 12px;
-  height: 12px;
-}
-
-
-.form-actions{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-}
-.team__person span{
-  display: block;
-  line-height: 1.2;
-}
-
-/* responsywność kontaktu */
-@media (max-width: 980px){
-  .contact-grid{ grid-template-columns: 1fr; }
-  .about-tiles{ grid-template-columns: 1fr; }
-  .team{ grid-template-columns: 1fr; }
-  .contact-hero{ height: 280px; }
-}
-
-@media (max-width: 640px){
-  .form-grid{ grid-template-columns: 1fr; }
-}
-
-/* =======================
-   RUCH I SPORT – kafelki
-   ======================= */
-
-.sport-card__img{
-  width: 100%;
-  height: 180px;
-  border-radius: 16px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 14px;
-  box-shadow: var(--shadow);
-}
-
-@media (min-width: 993px){
-  .sport-card__img{ height: 200px; }
-}
-
-
-/* --- Odżywianie --- */
-
-/* HERO */
+/* ==========================================================================
+   9. ODŻYWIANIE I PRZEPISY
+   ========================================================================== */
 .subpage-hero {
     height: 50vh;
     background-size: cover;
     background-position: center;
-	border-radius: 0 0 40px 40px;
+    border-radius: 0 0 40px 40px;
     overflow: hidden;
 }
 
@@ -620,16 +506,6 @@ main { margin-bottom: 50px; }
     text-align: center;
 }
 
-/* INTRO */
-.intro {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    margin: 60px 0;
-    box-shadow: var(--shadow);
-}
-
-/* SEKCJE */
 .article-section {
     background: #ffffff;
     padding: 60px 40px;
@@ -638,9 +514,7 @@ main { margin-bottom: 50px; }
     box-shadow: 0 8px 30px rgba(0,0,0,0.05);
 }
 
-.article-section.alt {
-    background: linear-gradient(135deg, #f2fff7, #ffffff);
-}
+.article-section.alt { background: linear-gradient(135deg, #f2fff7, #ffffff); }
 
 .article-section h2 {
     font-size: 2rem;
@@ -658,7 +532,6 @@ main { margin-bottom: 50px; }
     border-radius: 2px;
 }
 
-/* TEKST + OBRAZ */
 .content-image {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -666,31 +539,18 @@ main { margin-bottom: 50px; }
     align-items: center;
 }
 
-.content-image.reverse {
-    direction: rtl;
-}
-
-.content-image.reverse > * {
-    direction: ltr;
-}
-
+.content-image.reverse { direction: rtl; }
+.content-image.reverse > * { direction: ltr; }
 .content-image img {
     width: 100%;
     border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* LISTY */
-.tips-list {
-    margin-top: 15px;
-    padding-left: 20px;
-}
+.tips-list { margin-top: 15px; padding-left: 20px; }
+.tips-list li { margin-bottom: 8px; }
 
-.tips-list li {
-    margin-bottom: 8px;
-}
-
-/* KARTY */
+/* Karty i sekcje przepisów */
 .cards-section {
     background: #ffffff;
     padding: 60px 40px;
@@ -701,12 +561,11 @@ main { margin-bottom: 50px; }
 
 .cards-section h2 {
     text-align: center;
-    margin-top: -40px; /* przesunięcie w górę */
+    margin-top: -40px;
     margin-bottom: 40px;
     font-size: 2rem;
     color: var(--primary-green);
 }
-
 
 .cards-grid {
     display: grid;
@@ -719,29 +578,6 @@ main { margin-bottom: 50px; }
     padding: 30px;
     border-radius: 16px;
     background: #f7f7f7;
-}
-
-/* GRID ZDJĘĆ */
-.image-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.image-grid img {
-    height: 280px;
-    object-fit: cover;
-}
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 768px) {
-    .content-image {
-        grid-template-columns: 1fr;
-    }
-
-    .image-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .recipes-section {
@@ -781,10 +617,7 @@ main { margin-bottom: 50px; }
     transition: transform 0.3s ease;
 }
 
-.recipe-card:hover {
-    transform: translateY(-5px);
-}
-
+.recipe-card:hover { transform: translateY(-5px); }
 .recipe-card img {
     width: 100%;
     height: 180px;
@@ -793,46 +626,11 @@ main { margin-bottom: 50px; }
     margin-bottom: 15px;
 }
 
-.recipe-card h3 {
-    color: var(--primary-green);
-    margin-bottom: 10px;
-}
+.recipe-card h3 { color: var(--primary-green); margin-bottom: 10px; }
+.recipe-card p { font-size: 0.95rem; margin-bottom: 15px; }
 
-.recipe-card p {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-}
-
-.recipe-card .btn {
-    padding: 10px 20px;
-    border-radius: 30px;
-    background: var(--accent-orange);
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.recipe-card .btn:hover {
-    background: #e68a00;
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
-}
-
-/* RESPONSYWNOŚĆ */
-@media (max-width: 768px) {
-    .recipes-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .recipe-card img {
-        height: 220px;
-    }
-}
-
-.detailed-recipes {
-    margin-top: 60px;
-}
-
+/* Szczegóły przepisów */
+.detailed-recipes { margin-top: 60px; }
 .recipe-detail {
     background-color: var(--white);
     padding: 30px;
@@ -841,36 +639,26 @@ main { margin-bottom: 50px; }
     margin-bottom: 40px;
 }
 
-.recipe-detail h2 {
-    color: var(--primary-green);
-    margin-bottom: 20px;
-    text-align: center;
+.recipe-detail h2 { color: var(--primary-green); margin-bottom: 20px; text-align: center; }
+.recipe-detail h3 { color: var(--accent-orange); margin-top: 15px; margin-bottom: 10px; }
+.recipe-detail ul { padding-left: 20px; margin-bottom: 15px; }
+.recipe-detail ul li { margin-bottom: 5px; }
+
+/* Grid zdjęć w odżywianiu */
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
 }
 
-.recipe-detail h3 {
-    color: var(--accent-orange);
-    margin-top: 15px;
-    margin-bottom: 10px;
+.image-grid img {
+    height: 280px;
+    object-fit: cover;
 }
 
-.recipe-detail ul {
-    padding-left: 20px;
-    margin-bottom: 15px;
-}
-
-.recipe-detail ul li {
-    margin-bottom: 5px;
-}
-
-.recipe-detail p {
-    line-height: 1.5;
-}
-
-
-
-
-/* --- Strefa Mind --- */
-
+/* ==========================================================================
+   10. STREFA MIND
+   ========================================================================== */
 .mind-section {
     padding: 80px 40px;
     margin-bottom: 60px;
@@ -879,11 +667,7 @@ main { margin-bottom: 50px; }
     box-shadow: var(--shadow);
 }
 
-
-.mind-section.alt-bg {
-    background: linear-gradient(135deg, #e0ffe8, #ffffff);
-}
-
+.mind-section.alt-bg { background: linear-gradient(135deg, #e0ffe8, #ffffff); }
 
 .mind-content {
     display: flex;
@@ -893,14 +677,9 @@ main { margin-bottom: 50px; }
     margin: 0 auto;
 }
 
-.mind-content.reverse {
-    flex-direction: row-reverse;
-}
+.mind-content.reverse { flex-direction: row-reverse; }
 
-.mind-text {
-    flex: 1;
-}
-
+.mind-text { flex: 1; }
 .mind-text h2 {
     font-size: 2.3rem;
     color: var(--primary-green);
@@ -908,27 +687,11 @@ main { margin-bottom: 50px; }
     line-height: 1.2;
 }
 
+.mind-text p { font-size: 1rem; margin-bottom: 15px; line-height: 1.5; }
+.mind-text ul { padding-left: 20px; }
+.mind-text ul li { margin-bottom: 10px; font-size: 1rem; }
 
-.mind-text p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.mind-text ul {
-    padding-left: 20px;
-}
-
-.mind-text ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-}
-
-
-.mind-image {
-    flex: 1;
-}
-
+.mind-image { flex: 1; }
 .mind-image img {
     width: 100%;
     max-width: 620px;      
@@ -955,15 +718,108 @@ main { margin-bottom: 50px; }
     margin-bottom: 15px;
 }
 
+/* ==========================================================================
+   11. STOPKA
+   ========================================================================== */
+.site-footer {
+    padding: 40px 0;
+    border-top: 2px solid #eee;
+    text-align: center;
+}
 
-/* Responsywność */
+.social-media {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media img { height: 32px; transition: var(--transition); }
+.social-media img:hover { transform: rotate(10deg) scale(1.2); }
+
+.site-footer small {
+    display: block;
+    margin-bottom: 10px;
+    color: #777;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   12. RESPONSYWNOŚĆ (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Desktop (>993px) */
+@media (min-width: 993px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .slider-container { height: 75vh; }
+    .slide-caption h1 { font-size: 3.5rem; }
+    .sport-card__img { height: 200px; }
+}
+
+/* Tablety i laptopy (do 992px) */
 @media (max-width: 992px) {
+    .site-header { flex-direction: column; gap: 20px; }
+    
+    .contact-grid, .about-tiles, .team { grid-template-columns: 1fr; }
+    .contact-hero { height: 280px; }
+
     .mind-content, .mind-content.reverse {
         flex-direction: column;
         text-align: center;
     }
-
     .mind-text h2 { text-align: center; }
     .mind-text ul { text-align: center; padding-left: 0; }
 }
 
+/* Specyficzne dla tabletów (577px - 992px) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .main-nav ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 100%;
+    }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobilne (<768px) */
+@media (max-width: 768px) {
+    .hamburger { display: block; position: relative; z-index: 1100; }
+    .hamburger.active { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); }
+
+    .main-nav {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.98);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 120px;
+        transition: 0.4s ease-in-out;
+        z-index: 1050;
+    }
+    .main-nav.active { left: 0; }
+    .main-nav ul { flex-direction: column; gap: 15px; }
+
+    .cards, .recipes-grid, .content-image, .image-grid { grid-template-columns: 1fr; }
+    
+    .slide-caption h1 { font-size: 1.8rem; }
+    .slider-container { height: 400px; }
+    .recipe-card img { height: 220px; }
+}
+
+/* Bardzo małe ekrany */
+@media (max-width: 640px) {
+    .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   13. ANIMACJE
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
