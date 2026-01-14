@@ -276,25 +276,28 @@ document.addEventListener("DOMContentLoaded", function () {
             // Finalizacja wysyłki do Netlify
             if (isValid) {
                 const formData = new FormData(contactForm);
-    
+                    const params = new URLSearchParams(formData);
+                params.set("form-name", "contact-form"); 
+
                 fetch("/", {
                     method: "POST",
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
+                    body: params.toString(),
                 })
-                .then(() => {
-                    output.style.color = "var(--primary-green)";
-                    output.innerHTML = "<strong>Sukces!</strong> Twoja wiadomość została zapisana w systemie Netlify.";
-                    contactForm.reset(); // Czyszczenie pól
+                .then(response => {
+                    if (response.ok) {
+                        output.style.color = "var(--primary-green)";
+                        output.innerHTML = "<strong>Sukces!</strong> Wiadomość została zapisana w Netlify.";
+                        contactForm.reset();
+                    } else {
+                        throw new Error("Błąd serwera Netlify");
+                    }
                 })
                 .catch((error) => {
-                    output.style.color = "#b00020";
-                    output.textContent = "Błąd serwera podczas wysyłki. Spróbuj później.";
-                    console.error('Netlify Error:', error);
-                });
-            } else {
                 output.style.color = "#b00020";
-                output.textContent = "Popraw błędy w formularzu.";
+                    output.textContent = "Błąd: " + error.message;
+                    console.error('Netlify Post Error:', error);
+                });
             }
         });
     }
