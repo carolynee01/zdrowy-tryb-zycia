@@ -158,7 +158,7 @@ main {
 
 .card:hover { transform: scale(1.03); }
 
-.card time {
+.card span {
     font-size: 0.8rem;
     color: #888;
     font-weight: bold;
