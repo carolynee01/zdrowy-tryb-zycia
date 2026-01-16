@@ -4,9 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
-    --primary-green: #1a7f4b;    /* Główna zieleń projektu */
-    --accent-green: #5bd18e;     /* Jasna zieleń do gradientów */
-    --accent-orange: #FF9800;    /* Kolor akcentowy - energia */
+    --primary-green: #1a7f4b;    
+    --accent-green: #5bd18e;    
+    --accent-orange: #FF9800;    
     --bg-light: #f9f9f9;
     --text-dark: #2d2d2d;
     --white: #ffffff;
@@ -491,9 +491,9 @@ main {
     height: 50vh;
     background-size: cover;
     background-position: center;
-    border-radius: 0 0 40px 40px; /* Zaokrąglenie tylko na dole */
+    border-radius: 0 0 40px 40px; 
     overflow: hidden;
-    margin-bottom: 40px; /* KLUCZ: To doda przerwę, o którą prosisz */
+    margin-bottom: 40px; 
     position: relative;
 }
 
