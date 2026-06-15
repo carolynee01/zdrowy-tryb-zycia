@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. IMPORTY I ZMIENNE (ROOT)
+   IMPORTY I ZMIENNE (ROOT)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
@@ -15,7 +15,7 @@
 }
 
 /* ==========================================================================
-   2. RESET I PODSTAWY
+   RESET I PODSTAWY
    ========================================================================== */
 * {
     box-sizing: border-box;
@@ -41,7 +41,7 @@ main {
 }
 
 /* ==========================================================================
-   3. NAGŁÓWEK I NAWIGACJA
+   NAGŁÓWEK I NAWIGACJA
    ========================================================================== */
 .site-header {
     display: flex;
@@ -58,7 +58,6 @@ main {
     display: block;
 }
 
-/* Nawigacja Desktop */
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -88,7 +87,6 @@ main {
     box-shadow: 0 4px 8px rgba(26, 127, 75, 0.2);
 }
 
-/* Hamburger (Mobilny) */
 .hamburger {
     display: none;
     background: #e0ffe8;
@@ -108,7 +106,7 @@ main {
 }
 
 /* ==========================================================================
-   4. KOMPONENTY WSPÓLNE (Przyciski, Karty, Intro)
+   KOMPONENTY WSPÓLNE (Przyciski, Karty, Intro)
    ========================================================================== */
 .btn {
     display: inline-block;
@@ -138,7 +136,6 @@ main {
     box-shadow: var(--shadow);
 }
 
-/* Standardowe karty (Blog/News) */
 .cards {
     display: grid;
     gap: 25px;
@@ -168,7 +165,7 @@ main {
 .card h3 { margin: 10px 0; color: var(--primary-green); }
 
 /* ==========================================================================
-   5. SEKCJA HERO I SLIDER
+   SEKCJA HERO I SLIDER
    ========================================================================== */
 .hero {
     background: none;
@@ -254,7 +251,7 @@ main {
 .next { right: 20px; }
 
 /* ==========================================================================
-   6. NARZĘDZIA (BMI, KALORIE, WODA)
+   NARZĘDZIA (BMI, KALORIE, WODA)
    ========================================================================== */
 .bmi-section, .quick-tools {
     background-color: var(--white);
@@ -308,7 +305,7 @@ main {
 }
 
 /* ==========================================================================
-   7. KONTAKT
+   KONTAKT
    ========================================================================== */
 .contact-hero, .contact-grid {
     width: 100%;
@@ -379,7 +376,6 @@ main {
 
 .muted { opacity: 0.85; }
 
-/* Kafelki O stronie i Zespół */
 .about-tiles {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -472,7 +468,7 @@ main {
 }
 
 /* ==========================================================================
-   8. RUCH I SPORT
+   RUCH I SPORT
    ========================================================================== */
 .sport-card__img {
     width: 100%;
@@ -485,7 +481,7 @@ main {
 }
 
 /* ==========================================================================
-   9. ODŻYWIANIE I PRZEPISY
+   ODŻYWIANIE I PRZEPISY
    ========================================================================== */
 .subpage-hero {
     height: 50vh;
@@ -659,7 +655,7 @@ main {
 }
 
 /* ==========================================================================
-   10. STREFA MIND
+   STREFA MIND
    ========================================================================== */
 .mind-section {
     padding: 80px 40px;
@@ -729,7 +725,7 @@ main {
 }
 
 /* ==========================================================================
-   11. STOPKA
+   STOPKA
    ========================================================================== */
 .site-footer {
     padding: 40px 0;
@@ -755,10 +751,9 @@ main {
 }
 
 /* ==========================================================================
-   12. RESPONSYWNOŚĆ (MEDIA QUERIES)
+   RESPONSYWNOŚĆ (MEDIA QUERIES)
    ========================================================================== */
 
-/* Desktop (>993px) */
 @media (min-width: 993px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
     .slider-container { height: 75vh; }
@@ -766,7 +761,6 @@ main {
     .sport-card__img { height: 200px; }
 }
 
-/* Tablety i laptopy (do 992px) */
 @media (max-width: 992px) {
     .site-header { flex-direction: column; gap: 20px; }
     
@@ -787,7 +781,6 @@ main {
     }
 }
 
-/* Specyficzne dla tabletów (577px - 992px) */
 @media (min-width: 577px) and (max-width: 992px) {
     .main-nav ul {
         display: grid;
@@ -798,7 +791,6 @@ main {
     .cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Mobilne (<768px) */
 @media (max-width: 768px) {
     .hamburger { display: block; position: relative; z-index: 1100; }
     .hamburger.active { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); }
@@ -833,7 +825,7 @@ main {
 }
 
 /* ==========================================================================
-   13. ANIMACJE
+   ANIMACJE
    ========================================================================== */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
